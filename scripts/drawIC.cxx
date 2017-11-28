@@ -4,7 +4,7 @@
 //---- plot IC
 //
 
-void drawIC(std::string nameInputFile = "dump_Data_EcalIntercalibConstants__since_00298613_till_18446744073709551615.dat") {
+void drawIC(std::string nameInputFile = "dump_Data_EcalIntercalibConstants__since_00298613_till_18446744073709551615.dat", int flip = 1) {
   
   gStyle->SetOptStat(0);
   
@@ -54,7 +54,8 @@ void drawIC(std::string nameInputFile = "dump_Data_EcalIntercalibConstants__sinc
       
       
       line >> value; 
-      IC.push_back(value);
+      if (flip == 1) IC.push_back(value);
+      else           IC.push_back(1./value);
       
     } 
   }
