@@ -84,6 +84,8 @@ void drawIC(std::string nameInputFile = "dump_Data_EcalIntercalibConstants__sinc
   
   ccEB->cd();
   histoEB_IC->Draw("colz");
+  histoEB_IC->GetZaxis()->SetRangeUser(0.98,1.02);
+  
   ccEB->SaveAs("IC_EB.png");
   ccEB->SaveAs("IC_EB.root");
   
