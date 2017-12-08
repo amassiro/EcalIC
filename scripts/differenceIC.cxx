@@ -139,6 +139,8 @@ void differenceIC( std::string nameInputFileOne = "dump_Data_EcalIntercalibConst
   myfile.open (nameOutputFile.c_str());
   
   for (int iter = 0; iter < ix_ieta_One.size(); iter++) { 
+    if (!(iter % 1000)) std::cout << " iter = " << iter << " [ " << ix_ieta_Two.size() << "]" << std::endl;
+    
     float multiplicative = IC_One.at(iter) ;
     //---- very inefficient but it works
     for (int iter_Two = 0; iter_Two < ix_ieta_Two.size(); iter_Two++) { 
@@ -149,11 +151,18 @@ void differenceIC( std::string nameInputFileOne = "dump_Data_EcalIntercalibConst
         multiplicative *= -1; 
         multiplicative += IC_Two.at(iter_Two);
       
-        //
-        //    one - two 
-        //
+      //
+      // ---- to speed up ...
+      ix_ieta_Two.erase (ix_ieta_Two.begin() + iter_Two ,ix_ieta_Two.begin() + iter_Two+1);
+      //
       
-          }
+      //
+      //    one - two 
+      //
+      
+      continue;
+      
+      }
     }
     
     myfile << ix_ieta_One.at(iter) << "   "  << iy_iphi_One.at(iter) << "   " << iz_One.at(iter) << "   " <<  multiplicative << "   " << RawId_One.at(iter) << std::endl;

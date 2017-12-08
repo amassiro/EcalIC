@@ -4,7 +4,7 @@
 //---- plot IC
 //
 
-void drawIC(std::string nameInputFile = "dump_Data_EcalIntercalibConstants__since_00298613_till_18446744073709551615.dat", int flip = 1) {
+void drawIC(std::string nameInputFile = "dump_Data_EcalIntercalibConstants__since_00298613_till_18446744073709551615.dat", int flip = 1, float min=0.98, float max=1.02) {
   
   gStyle->SetOptStat(0);
   
@@ -85,7 +85,7 @@ void drawIC(std::string nameInputFile = "dump_Data_EcalIntercalibConstants__sinc
   
   ccEB->cd();
   histoEB_IC->Draw("colz");
-  histoEB_IC->GetZaxis()->SetRangeUser(0.98,1.02);
+  histoEB_IC->GetZaxis()->SetRangeUser(min,max);
   
   ccEB->SaveAs("IC_EB.png");
   ccEB->SaveAs("IC_EB.root");
@@ -113,6 +113,7 @@ void drawIC(std::string nameInputFile = "dump_Data_EcalIntercalibConstants__sinc
   
   ccEE->cd();
   histoEE_IC->Draw("colz");
+  histoEE_IC->GetZaxis()->SetRangeUser(min,max);
   ccEE->SaveAs("IC_EE.png");
   ccEE->SaveAs("IC_EE.root");  
   
