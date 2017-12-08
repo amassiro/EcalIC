@@ -59,9 +59,20 @@ Difference the IC
     data_EcalIntercalibConstants_eopPNEB_etaScalePNEE_v5_RunFonly/dump_EcalIntercalibConstants__since_00306705_till_00306708.dat
     data_EcalIntercalibConstants_eopPNEB_etaScalePNEE_v5_RunFonly/dump_EcalIntercalibConstants__since_00306705_till_00306708.dat
     
-    r99t differenceIC.cxx\(\"data_EcalIntercalibConstants_eopPNEB_etaScalePNEE_v5_RunFonly/dump_EcalIntercalibConstants__since_00306705_till_00306708.dat\",\"data_EcalIntercalibConstants_eopPNEB_etaScalePNEE_v5_RunFonly/dump_EcalIntercalibConstants__since_00306705_till_00306708.dat\",\"combined-difference-00306705_till_00306708.txt\"\)
+    r99t differenceIC.cxx\(\"data_EcalIntercalibConstants_eopPNEB_etaScalePNEE_v5_RunFonly/dump_EcalIntercalibConstants__since_00306705_till_00306708.dat\",\"data_EcalIntercalibConstants_Run1_Run2_V05_offline/dump_EcalIntercalibConstants__since_00306705_till_00306708.dat\",\"combined-difference-00306705_till_00306708.txt\"\)
 
-    r99t drawIC.cxx\(\"combined-difference-00306705_till_00306708.txt\",1,-0.2,0.2\)
+    r99t drawIC.cxx\(\"combined-difference-00306705_till_00306708.txt\",1,-0.002,0.002\)
+    
+    
+    
+    data_EcalIntercalibConstants_Run1_Run2_V05_offline/dump_EcalIntercalibConstants__since_00306705_till_00306708.dat
+    data_EcalIntercalibConstants_eopPNEB_etaScalePNEE_v6/dump_EcalIntercalibConstants__since_00306705_till_00306708.dat
+    
+    r99t differenceIC.cxx\(\"data_EcalIntercalibConstants_Run1_Run2_V05_offline/dump_EcalIntercalibConstants__since_00306705_till_00306708.dat\",\"data_EcalIntercalibConstants_eopPNEB_etaScalePNEE_v6/dump_EcalIntercalibConstants__since_00306705_till_00306708.dat\",\"combined-difference-00306705_till_00306708_EE.txt\"\)
+
+    r99t drawIC.cxx\(\"combined-difference-00306705_till_00306708_EE.txt\",1,-0.002,0.002\)
+
+    
     
     
     

@@ -13,6 +13,12 @@ void drawIC(std::string nameInputFile = "dump_Data_EcalIntercalibConstants__sinc
   TCanvas* ccEE = new TCanvas ("ccEE","",1600,600);
   
   
+  
+  std::cout << " min = " << min << std::endl;
+  std::cout << " max = " << max << std::endl;
+  
+  
+  
   //   
   // input file format:
   //
@@ -54,6 +60,9 @@ void drawIC(std::string nameInputFile = "dump_Data_EcalIntercalibConstants__sinc
       
       
       line >> value; 
+      
+//       std::cout << " value = " << value << std::endl;
+      
       if (flip == 1) IC.push_back(value);
       else           IC.push_back(1./value);
       

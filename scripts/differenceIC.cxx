@@ -146,14 +146,16 @@ void differenceIC( std::string nameInputFileOne = "dump_Data_EcalIntercalibConst
     for (int iter_Two = 0; iter_Two < ix_ieta_Two.size(); iter_Two++) { 
       if (iy_iphi_One.at(iter) == iy_iphi_Two.at(iter_Two)  && 
           ix_ieta_One.at(iter) == ix_ieta_Two.at(iter_Two)  && 
-          iz_One.at(iter) == iz_Two.at(iter_Two) ) {
-           
-        multiplicative *= -1; 
-        multiplicative += IC_Two.at(iter_Two);
+          iz_One.at(iter)      == iz_Two.at(iter_Two)           ) {
+            
+        multiplicative -= IC_Two.at(iter_Two);
       
       //
       // ---- to speed up ...
       ix_ieta_Two.erase (ix_ieta_Two.begin() + iter_Two ,ix_ieta_Two.begin() + iter_Two+1);
+      iy_iphi_Two.erase (iy_iphi_Two.begin() + iter_Two ,iy_iphi_Two.begin() + iter_Two+1);
+      iz_Two.erase (iz_Two.begin() + iter_Two ,iz_Two.begin() + iter_Two+1);
+      IC_Two.erase (IC_Two.begin() + iter_Two ,IC_Two.begin() + iter_Two+1);
       //
       
       //
