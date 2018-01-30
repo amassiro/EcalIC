@@ -83,15 +83,16 @@ Compare MC tags for IC
     EcalIntercalibConstantsRcd --> EcalIntercalibConstants_2011_V3_Bon_design_mc
     
     
-    conddb_dumper -O EcalIntercalibConstants -t EcalIntercalibConstants_2011_V3_Bon_design_mc    -d frontier://FrontierPrep/CMS_CONDITIONS
-    mv dump_EcalIntercalibConstants__since_00000001_till_18446744073709551615.dat     raw2reco.txt
-    
     conddb_dumper -O EcalIntercalibConstants -t EcalIntercalibConstantsMC_digi_2011_V3_Bon_mc    -d frontier://FrontierPrep/CMS_CONDITIONS
     mv dump_EcalIntercalibConstants__since_00000001_till_18446744073709551615.dat     digi2raw.txt
     
+    conddb_dumper -O EcalIntercalibConstants -t EcalIntercalibConstants_2011_V3_Bon_design_mc    -d frontier://FrontierPrep/CMS_CONDITIONS
+    mv dump_EcalIntercalibConstants__since_00000001_till_18446744073709551615.dat     raw2reco.txt
+    
+    
     r99t scripts/differenceIC.cxx\(\"digi2raw.txt\",\"raw2reco.txt\",\"difference-MC.txt\"\)
 
-    r99t drawIC.cxx\(\"difference-MC.txt\",1,-0.002,0.002\)
+    r99t scripts/drawIC.cxx\(\"difference-MC.txt\",1,-0.01,0.01\)
 
 
     
