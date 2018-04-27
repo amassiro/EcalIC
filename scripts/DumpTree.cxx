@@ -67,7 +67,7 @@ int DumpTree(){
   
   TFile* outFile = new TFile ("dumpIC.root", "RECREATE");
   
-  TTree* tree = new TTree ();
+  TTree* tree = new TTree ("tree", "tree");
   
   std::vector<float> value;
   std::vector<int> ix;
@@ -76,7 +76,8 @@ int DumpTree(){
   std::vector<int> ieta;
   std::vector<int> iphi;
   std::vector<int> iring;
- 
+  int iov_min;
+  
   tree->Branch("value", &value);
   tree->Branch("ix",    &ix);
   tree->Branch("iy",    &iy);
@@ -84,6 +85,8 @@ int DumpTree(){
   tree->Branch("ieta",  &ieta);
   tree->Branch("iphi",  &iphi);
   tree->Branch("iring", &iring);
+  
+  tree->Branch("iov_min", &iov_min);
   
 
 
@@ -102,6 +105,17 @@ int DumpTree(){
       std::cout << " name_file = " << (folder + name_file) << std::endl;
       
       std::ifstream file ( (folder + name_file).c_str()); 
+      
+//       e.g.
+//       dump_EcalIntercalibConstants__since_00300459_till_00300496.dat
+     
+      std::size_t pos = name_file.find("since_");
+      std::string temp_number_iov = name_file.substr (pos+6);
+      pos = temp_number_iov.find("_");
+      iov_min = stoi (temp_number_iov.substr(0, pos));
+      
+      std::cout << " iov_min = " << iov_min << std::endl;      
+      
       
       int num1, num2, num3;
       float val;

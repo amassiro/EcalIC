@@ -5,6 +5,7 @@
 Where:
 
     /afs/cern.ch/user/a/amassiro/work/ECAL/CMSSW_9_2_13/src/ECALValidation/EcalIC
+    /afs/cern.ch/user/a/amassiro/work/ECAL/CMSSW_9_0_3/src/ECALValidation/EcalIC
     
     
 To install:

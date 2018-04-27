@@ -96,5 +96,44 @@ Compare MC tags for IC
 
 
     
+
+
+Dump IC vs time
+
+
+    EcalIntercalibConstants_Run2017BCDEF_eopPNEB_etaScalePNEE_finalComb_EffLCcorr_HighEtaICs_EtaScale_v1
+    
+    
+    conddb_dumper -O EcalIntercalibConstants -t EcalIntercalibConstants_Run2017BCDEF_eopPNEB_etaScalePNEE_finalComb_EffLCcorr_HighEtaICs_EtaScale_v1    -d frontier://FrontierPrep/CMS_CONDITIONS
+
+    
+    # 10th crystal
+    ls /tmp/amassiro/data_flat/ | tr "_" " " | tr "." " " | awk '{print "echo -n \" "$4"     \" >> temp_10.txt ; head -n 10 /tmp/amassiro/data_flat/"$1"_"$2"__"$3"_"$4"_"$5"_"$6"."$7" | tail -n 1  >> temp_10.txt"}'
+    
+    cat temp_10.txt  | awk '{print $1 "  " $5}' > toplot_10.txt
+    
+    r99t plotVsTime.cxx\(\"\toplot_10.txt\"\)
+    
+    
+    
+Transform IC vs time into trees
+    
+    r99t DumpTree.cxx
+    
+    r99t dumpIC.root
+    
+    tree->Draw("value:iov_min","iphi==197 && ieta==-9", "")
+    tree->Draw("value:iov_min","ieta==-9", "")
+    
+    (iov_min==297046)
+    
+    
+    
+    
+    
+    
+    
+
+    
     
     
