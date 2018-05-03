@@ -129,7 +129,7 @@ Transform IC vs time into trees
         
     (iov_min==297046)
     
-    r99t drawHistory.cxx
+    r99t dumpIC.root drawHistory.cxx
     
     
     
