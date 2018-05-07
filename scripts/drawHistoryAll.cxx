@@ -48,7 +48,7 @@ void drawHistoryAll() {
   int num[85];
   float reference[85];
 
-  int MINETA = 70;
+  int MINETA = 0;
   int MAXETA = 85;
   
   int nentries = tree->GetEntries();
@@ -91,6 +91,10 @@ void drawHistoryAll() {
     
   }
   
+  
+  TLegend* lg = new TLegend(0.90,0.10,0.99,0.90);
+  
+  
   for (int jeta=MINETA; jeta<MAXETA; jeta++) {
     
     //---- for some reason the first point is ==1
@@ -103,11 +107,18 @@ void drawHistoryAll() {
     gr_mean[jeta]->SetLineWidth(1.0);
     
     mg->Add(gr_mean[jeta]);
+  
+    TString name = Form ("%d", jeta);
+    lg->AddEntry(gr_mean[jeta],name.Data(),"p");
+    
+    
   }
  
  
  
  mg->Draw("APL");
   
+ lg->Draw();
+ 
   
 }
