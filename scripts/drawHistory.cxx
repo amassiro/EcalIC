@@ -24,6 +24,7 @@ void drawHistory() {
   
   int ieta_to_draw = 1;
   
+  float reference = 1.;
   
   TGraphErrors* gr_mean = new TGraphErrors ();
   int nentries = tree->GetEntries();
@@ -43,8 +44,10 @@ void drawHistory() {
       } 
     }
     
-    gr_mean->SetPoint      (i, float(iov_min), float(mean/num) );
-    gr_mean->SetPointError (i, 0, sqrt(rms/num - mean/num*mean/num) );
+    if (i == 0) reference = float(mean/num);
+    
+    gr_mean->SetPoint      (i, float(iov_min), float(mean/num) / reference );
+    gr_mean->SetPointError (i, 0, sqrt(rms/num - mean/num*mean/num) / reference );
     
     
     
