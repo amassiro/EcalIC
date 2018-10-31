@@ -106,6 +106,8 @@ Dump IC vs time
     
     conddb_dumper -O EcalIntercalibConstants -t EcalIntercalibConstants_Run2017BCDEF_eopPNEB_etaScalePNEE_finalComb_EffLCcorr_HighEtaICs_EtaScale_v1    -d frontier://FrontierPrep/CMS_CONDITIONS
 
+    conddb_dumper --object EcalIntercalibConstants --tag EcalIntercalibConstants_Legacy2016_v2_80X -b 273158 -e 284044 
+    
     
     # 10th crystal
     ls /tmp/amassiro/data_flat/ | tr "_" " " | tr "." " " | awk '{print "echo -n \" "$4"     \" >> temp_10.txt ; head -n 10 /tmp/amassiro/data_flat/"$1"_"$2"__"$3"_"$4"_"$5"_"$6"."$7" | tail -n 1  >> temp_10.txt"}'
@@ -118,7 +120,11 @@ Dump IC vs time
     
 Transform IC vs time into trees
     
+    copy the files dump_EcalIntercalibConstants__since_XXX_till_YYY.dat in /tmp/amassiro/data_flat/
+    
     r99t DumpTree.cxx
+    
+    
     
     r99t dumpIC.root
     
