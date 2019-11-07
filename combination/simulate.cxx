@@ -112,8 +112,8 @@ void simulate(){
 //   RMS(1-T) (+) RMS(3-T) != RMS ( (1-T) - (3-T) )
 //   RMS(2-T) (+) RMS(3-T) != RMS ( (2-T) - (3-T) )
 //   
-//   it can be "==" instead of "!="
-//   
+// 
+//   it can be "==" instead of "!=" if T has a narrow distribution, compared to 1, 2, and 3
 //   
 //   
 //   Algebra:
