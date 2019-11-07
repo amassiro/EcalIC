@@ -21,7 +21,7 @@ void simulate(){
   float res1 = 0.020;
   float res2 = 0.020;
   float res3 = 0.020;
-  float rest = 0.001;
+  float rest = 0.005;
   
   
   TString name;
@@ -29,17 +29,17 @@ void simulate(){
   name = Form ("exp( -(x-1)*(x-1)/(2*%f*%f) )", res1, res1);
   TF1 *f1 = new TF1("f1",name.Data(),0,2);
 
-  name = Form ("exp( -(x-1)*(x-1)/(2*%f*%f) )", res1, res1);
+  name = Form ("exp( -(x-1)*(x-1)/(2*%f*%f) )", res2, res2);
   TF1 *f2 = new TF1("f2",name.Data(),0,2);
 
-  name = Form ("exp( -(x-1)*(x-1)/(2*%f*%f) )", res1, res1);
+  name = Form ("exp( -(x-1)*(x-1)/(2*%f*%f) )", res3, res3);
   TF1 *f3 = new TF1("f3",name.Data(),0,2);
 
-  name = Form ("exp( -(x-1)*(x-1)/(2*%f*%f) )", res1, res1);
+  name = Form ("exp( -(x-1)*(x-1)/(2*%f*%f) )", rest, rest);
   TF1 *ft = new TF1("ft",name.Data(),0,2);
   
   
-  int num_events = 300000;
+  int num_events = 100000;
   for (int i=0; i<num_events; i++) {
     float x_1 = f1->GetRandom();
     float x_2 = f2->GetRandom();
@@ -108,6 +108,14 @@ void simulate(){
 //   P1 + P3 = RMS (1-3)
 //   P2 + P3 = RMS (2-3)
 //
+//   RMS(1-T) (+) RMS(2-T) != RMS ( (1-T) - (2-T) )
+//   RMS(1-T) (+) RMS(3-T) != RMS ( (1-T) - (3-T) )
+//   RMS(2-T) (+) RMS(3-T) != RMS ( (2-T) - (3-T) )
+//   
+//   it can be "==" instead of "!="
+//   
+//   
+//   
 //   Algebra:
 //   
 //   P1 = (   RMS (1-2)^2 + RMS (1-3)^2 - RMS (2-3)^2 ) / 2.
